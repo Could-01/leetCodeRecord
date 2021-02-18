@@ -3,8 +3,9 @@ package 二叉树;
 import java.lang.invoke.VarHandle;
 import java.util.*;
 
+// 针对LeetCode测试用例编程
 public class GenergicTree {
-
+       
     //层序遍历生成二叉树
     public TreeNode levelOrderGenergic(List<Integer> list) {
         int size = list.size();

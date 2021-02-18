@@ -1,7 +1,4 @@
 package 堆;
-
-import 数组._1054_距离相等的条形码;
-
 import java.util.Arrays;
 
 public class _767_重构字符串 {

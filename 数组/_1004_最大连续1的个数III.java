@@ -6,7 +6,6 @@ public class _1004_最大连续1的个数III {
         while (right < A.length) {
             if (A[right] == 0) {
                 K--;
-
                 max = Math.max(max, right - left);
             }
             right++;
@@ -32,10 +31,8 @@ public class _1004_最大连续1的个数III {
 
 
     public int longestOnes2(int[] A, int K) {
-
         int left = 0;
         int right = 0;
-
         //关键在于:左走看K<0
         while (right < A.length) {
             if (A[right] == 0) {
@@ -49,7 +46,6 @@ public class _1004_最大连续1的个数III {
             }
             right++;
         }
-
         return right - left;
     }
 

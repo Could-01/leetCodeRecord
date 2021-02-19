@@ -3,6 +3,8 @@ package 数组;
 import java.util.*;
 
 public class _1424_对角线遍历II {
+
+    // 超时写法
     public int[] findDiagonalOrder(List<List<Integer>> nums) {
         int rows = nums.size(), cols = nums.get(0).size();
         if (cols == 0) return new int[0];
@@ -11,27 +13,22 @@ public class _1424_对角线遍历II {
         }
         int r = 0, tmpr = 0, index = 0;
         int[] res = new int[rows * cols];
-//        for (int i = 0; i < cols + rows - 1; i++) {
-//            int c = 1;
-//            r = tmpr;
-//            if (r < rows) {
-//                for (; r > -1; r--) {
-//                    c = i - r;
-//                    if (c >= cols || c < 0 || c >= nums.get(r).size()) continue;
-//                    res[index++] = nums.get(r).get(c);
-//                }
-//                tmpr++;
-//            } else {
-//                for (; c < cols; c++) {
-//                    r = i - c;
-//                    if (r >= rows || r < 0 || c >= nums.get(r).size()) continue;
-//                    res[index++] = nums.get(r).get(c);
-//                }
-//            }
-//        }
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < nums.get(i).size(); j++) {
-
+        for (int i = 0; i < cols + rows - 1; i++) {
+            int c = 1;
+            r = tmpr;
+            if (r < rows) {
+                for (; r > -1; r--) {
+                    c = i - r;
+                    if (c >= cols || c < 0 || c >= nums.get(r).size()) continue;
+                    res[index++] = nums.get(r).get(c);
+                }
+                tmpr++;
+            } else {
+                for (; c < cols; c++) {
+                    r = i - c;
+                    if (r >= rows || r < 0 || c >= nums.get(r).size()) continue;
+                    res[index++] = nums.get(r).get(c);
+                }
             }
         }
         return Arrays.copyOf(res, index);

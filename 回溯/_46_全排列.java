@@ -3,6 +3,19 @@ package 回溯;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+result = []
+def backtrack(路径, 选择列表):
+    if 满足结束条件:
+        result.add(路径)
+        return
+
+    for 选择 in 选择列表:
+        做选择
+        backtrack(路径, 选择列表)
+        撤销选择
+* */
 public class _46_全排列 {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();

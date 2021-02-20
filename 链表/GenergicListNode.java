@@ -2,6 +2,7 @@ package 链表;
 
 public class GenergicListNode {
     ListNode getListNode(int[] list) {
+        if (list.length == 0) return new ListNode();
         ListNode res = new ListNode(list[0]);
         ListNode tmp = new ListNode();
         res.next = tmp;

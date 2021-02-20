@@ -54,7 +54,7 @@ public class _56_合并区间 {
         int[][] data = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         int[][] data1 = {{1, 4}, {4, 5}};
         int[][] data2 = {{0, 4}, {1, 4}};
-        int[][] res = a.merge(data2);
+        int[][] res = a.merge1(data);
         for (int[] arr : res) {
             System.out.println(Arrays.toString(arr));
         }

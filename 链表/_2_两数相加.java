@@ -8,7 +8,7 @@ public class _2_两数相加 {
     ListNode dfs(ListNode l, ListNode r, int i) {
         if (l == null && r == null && i == 0) return null;
         int sum = (l != null ? l.val : 0) + (r != null ? r.val : 0) + i;
-        var node = new ListNode(sum % 10);
+        ListNode node = new ListNode(sum % 10);
         node.next = dfs(l != null ? l.next : null, r != null ? r.next : null, sum / 10);
         return node;
     }

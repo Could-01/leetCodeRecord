@@ -1,7 +1,5 @@
 package 数组;
 
-import java.awt.desktop.SystemSleepEvent;
-
 public class _724_寻找数组的中心索引 {
     public int pivotIndex(int[] nums) {
         if (nums.length <= 2) return -1;

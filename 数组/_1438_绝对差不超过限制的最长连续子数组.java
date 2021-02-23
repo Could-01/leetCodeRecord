@@ -66,7 +66,6 @@ public class _1438_绝对差不超过限制的最长连续子数组 {
 
     public int longestSubarray2(int[] nums, int limit) {
         TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-
         int left = 0,right = 0,size = 0,maxSize = 0,len = nums.length;
         while (right<len){
             int item = nums[right];

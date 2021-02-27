@@ -7,15 +7,14 @@ public class _395_至少有K个重复字符的最长子串 {
     public int longestSubstring(String s, int k) {
         int[] cnt = new int[26];
         int n = s.length();
-        if (n < k) {
-            return 0;
-        }
-        for (int i = 0; i < s.length(); i++) {
+        if (n < k) return 0;
+        for (int i = 0; i < n; i++) {
             cnt[s.charAt(i) - 'a']++;
         }
         int l = 0;
         int res = 0;
         for (int r = 0; r < n; r++) {
+            // 说明遇到了不匹配的，到此处截至
             if (cnt[s.charAt(r) - 'a'] < k) {
                 res = Math.max(res, longestSubstring(s.substring(l, r), k));
                 l = r + 1;

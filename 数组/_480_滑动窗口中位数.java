@@ -188,3 +188,49 @@ class DualHeap {
         }
     }
 }
+
+
+class optimalClass {
+    public double[] medianSlidingWindow(int[] nums, int k) {
+        int[] window = Arrays.copyOfRange(nums, 0, k);
+        Arrays.sort(window);
+        double[] res = new double[nums.length - k + 1];
+        int a = (k - 1) >>> 1, b = k >>> 1;
+        res[0] = ((long) window[a] + window[b]) / 2d;
+        for (int i = k; i < nums.length; i++) {
+            remove(window, nums[i - k]);
+            insert(window, nums[i]);
+            res[i - k + 1] = ((long) window[a] + window[b]) / 2d;
+        }
+        return res;
+    }
+
+    private void remove(int[] window, int target) {
+        int left = 0, right = window.length - 1;
+        while (true) {// 一定能找到target，无需写条件
+            int mid = (left + right) >>> 1;
+            if (window[mid] < target) {
+                left = mid + 1;
+            } else if (window[mid] > target) {
+                right = mid - 1;
+            } else {
+                System.arraycopy(window, mid + 1, window, mid, window.length - mid - 1);
+                return;
+            }
+        }
+    }
+
+    private void insert(int[] window, int target) {
+        int left = 0, right = window.length - 2;
+        while (left <= right) {
+            int mid = (left + right) >>> 1;
+            if (window[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        System.arraycopy(window, left, window, left + 1, window.length - left - 1);
+        window[left] = target;
+    }
+}

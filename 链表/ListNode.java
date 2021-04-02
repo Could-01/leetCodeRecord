@@ -4,8 +4,6 @@ public class ListNode {
     Integer val;
     ListNode next;
 
-    boolean flag = true; // 用来标记是否到了最后一个
-
     ListNode() {
     }
 
@@ -36,18 +34,6 @@ public class ListNode {
 
     @Override
     public String toString() {
-        if ((next == null || val == null) && !flag) {
-            return null;
-        }
-
-        if (next != null && val != null) {
-            return val + "->" + next + "->";
-        } else if (flag) {
-            flag = false;
-            return val + "";
-        }
-
-
-        return null;
+        return val + "->" + next + "->";
     }
 }

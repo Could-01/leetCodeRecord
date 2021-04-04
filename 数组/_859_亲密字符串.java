@@ -2,27 +2,49 @@ package 数组;
 
 public class _859_亲密字符串 {
     public boolean buddyStrings(String a, String b) {
-        int lena = a.length(), lenb = b.length();
-        if (lena != lenb) return false;
-        int[] arr_a = new int[lena];
-        int[] arr_b = new int[lenb];
-        int count = 0, index = 0;
-        for (int i = 0; i < lena; i++) {
-            arr_a[i] = a.charAt(i) - 97;
+        int length = a.length();
+        if (b.length() != length || length == 0) return false;
+        int[] arr = new int[26];
+        char[] ch = a.toCharArray();
+        boolean repeat = false;
+        for (int i = 0; i < length; i++) {
+            int index = a.charAt(i) - 97;
+            arr[index]++;
+            if (arr[index] > 1) repeat = true;
         }
-        for (int i = 0; i < lena; i++) {
-            arr_b[i] = b.charAt(i) - 97;
+        if (a.equals(b)) {
+            return repeat;
         }
-        while (index < lena) {
-            if (arr_a[index] != arr_b[index]) count++;
-            index++;
-            if (index == lena - 1 && count > 2) return false;
+
+        for (int i = 0; i < length; i++) {
+            int ca = a.charAt(i), cb = b.charAt(i);
+            if (ca != cb) { // 如果a和b在i处不相同
+                if (arr[cb - 97] == 0) { // 如果在a中不存在b的元素
+                    return false;
+                } else {
+                    int pos = i;
+                    for (; i < length; i++) {
+                        if (ch[i] == cb) {
+                            char tmp = ch[i];
+                            ch[i] = ch[pos];
+                            ch[pos] = tmp;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
         }
+
+        for (int i = 0; i < length; i++) {
+            if (b.charAt(i) != ch[i]) return false;
+        }
+
         return true;
     }
 
     public static void main(String[] args) {
         _859_亲密字符串 a = new _859_亲密字符串();
-        System.out.println(a.buddyStrings("aaaaaaabc", "aaaaaaacb"));
+        System.out.println(a.buddyStrings("abcd", "badc"));
     }
 }

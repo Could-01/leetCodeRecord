@@ -47,6 +47,6 @@ public class _516_最长回文子序列 {
 
     public static void main(String[] args) {
         _516_最长回文子序列 a = new _516_最长回文子序列();
-        System.out.print(a.longestPalindromeSubseq("bbbab"));
+        System.out.print(a.longestPalindromeSubseq1("bbbab"));
     }
 }

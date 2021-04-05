@@ -42,6 +42,6 @@ public class _1143_最长公共子序列 {
 
     public static void main(String[] args) {
         _1143_最长公共子序列 a = new _1143_最长公共子序列();
-        System.out.println(a.longestCommonSubsequence("abc", "def"));
+        System.out.println(a.longestCommonSubsequence("bbbab", "babbb"));
     }
 }

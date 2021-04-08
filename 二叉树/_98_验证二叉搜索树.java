@@ -51,7 +51,7 @@ class Solution1 {
     //什么时候结束？ 节点为空时结束。
     //每层干什么？ 如果情况不对，则报false。
     //给下一层什么？ pre的值。
-    //着重于返回false，而不是true。false
+    //着重于返回false，而不是true
     long pre = Long.MIN_VALUE;
 
     public boolean isValidBST(TreeNode root) {

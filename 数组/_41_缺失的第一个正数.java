@@ -1,7 +1,5 @@
 package 数组;
 
-import java.util.Arrays;
-
 public class _41_缺失的第一个正数 {
     public int firstMissingPositive(int[] nums) {
         for (int i = 0; i < nums.length; i++) {

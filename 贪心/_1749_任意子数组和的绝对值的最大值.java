@@ -25,6 +25,32 @@ public class _1749_任意子数组和的绝对值的最大值 {
         return res;
     }
 
+    public int maxAbsoluteSum1(int[] nums) {
+        int right = 0;
+        int len = nums.length;
+        int sum = 0;
+        int[] mm = new int[2];
+        while (right < len) {
+            sum += nums[right++];
+            if (sum < 0) {
+                sum = 0;
+            } else {
+                mm[0] = Math.max(mm[0], sum);
+            }
+        }
+        right = 0;
+        sum = 0;
+        while (right < len) {
+            sum += nums[right++];
+            if (sum > 0) {
+                sum = 0;
+            } else {
+                mm[1] = Math.min(mm[1], sum);
+            }
+        }
+        return Math.max(mm[0], -mm[1]);
+    }
+
     public static void main(String[] args) {
         _1749_任意子数组和的绝对值的最大值 a = new _1749_任意子数组和的绝对值的最大值();
         int[] data = {4};

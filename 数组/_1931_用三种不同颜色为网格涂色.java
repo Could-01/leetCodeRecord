@@ -1,7 +1,5 @@
 package 数组;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class _1931_用三种不同颜色为网格涂色 {
     int res = 0;

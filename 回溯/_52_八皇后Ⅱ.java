@@ -3,7 +3,6 @@ package 回溯;
 public class _52_八皇后Ⅱ {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         System.out.println(new _52_八皇后Ⅱ().totalNQueens(9));
     }
 
